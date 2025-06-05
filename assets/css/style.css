@@ -409,6 +409,7 @@ img {
 }
 .trend-nav-link {
   padding: 10px 10px;
+  margin-bottom: 20px;
   border: none;
   outline: none;
   background-color: white;
