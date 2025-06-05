@@ -1,0 +1,290 @@
+<!-- Bootstrap CSS and Carousel Dependencies -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<!-- Body Wrapper -->
+<section class="hero-section">
+  <div class="container-fluid px-2">
+    <div class="row rowgap">
+      <!-- Left Side: Bootstrap Carousel -->
+      <div class="col-md-6 pe-1">
+        <div
+          id="heroCarousel"
+          class="carousel slide position-relative"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="hero-card large position-relative">
+                <img
+                  src="/assets/images/hero/5.jpg"
+                  class="d-block w-100 h-100 object-cover"
+                  alt="Slide 1"
+                />
+
+                <div class="hero-content">
+                  <span class="category travel">ভ্রমণ</span>
+                  <h3 class="title">রাজনৈতিক মিত্ররা সবসময় বন্ধু নয়।</h3>
+                  <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="hero-card large position-relative">
+                <img
+                  src="/assets/images/hero/3.jpg"
+                  class="d-block w-100 h-100 object-cover"
+                  alt="Slide 2"
+                />
+
+                <div class="hero-content">
+                  <span class="category sports">খেলা</span>
+                  <h3 class="title">
+                    অস্ট্রেলিয়া বাংলাদেশ সফরের দল ঘোষণা করেছে।
+                  </h3>
+                  <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="hero-card large position-relative">
+                <img
+                  src="/assets/images/hero/4.jpg"
+                  class="d-block w-100 h-100 object-cover"
+                  alt="Slide 3"
+                />
+
+                <div class="hero-content">
+                  <span class="category gadgets">প্রযুক্তি</span>
+                  <h3 class="title">অ্যাপল, আইওএস এবং ম্যাকওএস নিয়ে।</h3>
+                  <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon bg-dark rounded-circle p-2"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon bg-dark rounded-circle p-2"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Side: Grid Items -->
+      <div class="col-md-6">
+        <div class="row g-3">
+          <!-- Repeatable Cards -->
+          <div class="col-6">
+            <div class="hero-card position-relative">
+              <img
+                src="/assets/images/populerContent/1.jpg"
+                class="img-fluid w-100 h-100 object-cover"
+                alt="Img"
+              />
+
+              <div class="hero-content">
+                <span class="category fashion">ফ্যাশন</span>
+                <h5 class="title small">
+                  ফ্যাশন এমন কিছু যা আপনার ভেতর থেকে আসে।
+                </h5>
+                <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="hero-card position-relative">
+              <img
+                src="/assets/images/populerContent/3.jpg"
+                class="img-fluid w-100 h-100 object-cover"
+                alt="Img"
+              />
+
+              <div class="hero-content">
+                <span class="category travel">ভ্রমণ</span>
+                <h5 class="title small">
+                  হাইপনোডিয়া মহিলাদের স্বাস্থ্য খুঁজে পেতে সহায়তা করে।
+                </h5>
+                <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="hero-card position-relative">
+              <img
+                src="/assets/images/hero/2.jpg"
+                class="img-fluid w-100 h-100 object-cover"
+                alt="Img"
+              />
+
+              <div class="hero-content">
+                <span class="category gadgets">প্রযুক্তি</span>
+                <h5 class="title small">নতুন স্মার্টফোন বাজারে আসছে।</h5>
+                <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="hero-card position-relative">
+              <img
+                src="/assets/images/hero/1.jpg"
+                class="img-fluid w-100 h-100 object-cover"
+                alt="Img"
+              />
+
+              <div class="hero-content">
+                <span class="category sports">খেলা</span>
+                <h5 class="title small">বিশ্বকাপের জন্য প্রস্তুতি শুরু।</h5>
+                <p class="date"><i class="far fa-clock"></i> ২১ মে ২০২৫</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom Styles with Hover Effects -->
+<style>
+  .hero-section {
+    margin: 25px 10px;
+    border: 1px solid gainsboro;
+    padding-left: 0px;
+    padding-right: 17px;
+    padding-bottom: 17px;
+    padding-top: 17px;
+    border-radius: 8px;
+  }
+
+  .hero-card {
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .hero-card.large {
+    height: 713px;
+  }
+
+  .object-cover {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .hero-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .hero-card:hover .title,
+  .hero-card:hover .title.small {
+    color: red !important;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.6)
+    );
+    z-index: 1;
+    transition: background 0.3s ease;
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .hero-content .category {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .hero-content .title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 8px 0;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .hero-content .title.small {
+    font-size: 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+
+  .hero-content .date {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 600;
+  }
+
+  .hero-content .date i {
+    margin-right: 5px;
+  }
+
+  .category.travel {
+    background-color: #ffc107;
+    color: #000;
+  }
+
+  .category.fashion {
+    background-color: #e91e63;
+    color: #fff;
+  }
+
+  .category.sports {
+    background-color: #4caf50;
+    color: #fff;
+  }
+
+  .category.gadgets {
+    background-color: #333;
+    color: #fff;
+  }
+</style>

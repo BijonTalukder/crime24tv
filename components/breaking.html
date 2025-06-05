@@ -1,0 +1,88 @@
+<section class="breaking-news-wrapper">
+  <strong class="breaking-label">🔴 Breaking News:</strong>
+  <div class="news-scroll">
+    <div class="scrolling-text">
+      সিলেটে সংঘবদ্ধ চোরচক্র গ্রেফতার 🛑 | রাজধানীতে মাদকের চালান আটক 🚔 |
+      সাইবার অপরাধ বেড়েই চলেছে ⚠️ | ড্রাগ লর্ড গ্রেফতার, অনুসন্ধান চলছে 🔍 |
+      কুমিল্লায় গৃহবধূ খুন 💔 | অনলাইন প্রতারণা নতুন মাত্রা নিচ্ছে ⚠️ | বরিশালে
+      চুরি ও ডাকাতির ঘটনা বেড়েছে | রংপুরে পুলিশ অভিযান জোরদার | খুলনায় বিশেষ টিম
+      গঠন করা হয়েছে 🔎 | নতুন অপরাধ ট্রেন্ড বিশ্লেষণ চলছে |... সর্বশেষ সংবাদ
+      স্ক্রল হচ্ছে...
+    </div>
+  </div>
+  <!-- <div class="scroll-controls">
+    <button class="scroll-btn" aria-label="Scroll Left">&lt;</button>
+    <button class="scroll-btn" aria-label="Scroll Right">&gt;</button>
+  </div> -->
+</section>
+
+<style>
+  .breaking-news-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    color: #b71c1c;
+    padding: 10px 20px; /* slightly reduced padding */
+    font-family: "Segoe UI", sans-serif;
+    font-size: 0.95rem; /* small font size tweak */
+    font-weight: 500;
+    border-bottom: 1px solid gainsboro;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .breaking-label {
+    font-weight: 700;
+    margin-right: 16px;
+    font-size: 1.1rem;
+    color: #b71c1c;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .news-scroll {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll-left 55s linear infinite;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .breaking-news-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+
+    .breaking-label {
+      font-size: 1rem;
+      margin-right: 0;
+    }
+
+    .scrolling-text {
+      font-size: 0.95rem;
+    }
+  }
+</style>

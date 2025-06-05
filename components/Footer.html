@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Footer - Crime24TV</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Bengali Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* === Base Typography & Body === */
+      body {
+        font-family: "Noto Serif Bengali", serif;
+        background-color: #fff;
+        color: #212529;
+        font-size: 18px;
+      }
+
+      /* === Footer Container === */
+      .footer {
+        padding: 60px 30px;
+        border: 1px solid #dee2e6;
+        margin-top: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 8px;
+      }
+
+      /* === Top Line Section === */
+      .footer .top-line {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 40px;
+        gap: 20px;
+      }
+
+      .footer .top-line p {
+        margin-bottom: 0;
+        font-weight: 600;
+        font-size: 22px;
+        max-width: 65%;
+        line-height: 1.4;
+        color: #2c3e50;
+      }
+
+      /* === Navigation Buttons === */
+      .footer .nav-links {
+        text-align: right;
+        margin-top: 15px;
+      }
+
+      .footer .nav-links a {
+        background-color: red;
+        color: white;
+        padding: 12px 22px;
+        margin-left: 14px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
+        transition: background-color 0.35s ease, transform 0.25s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .footer .nav-links a:hover {
+        background-color: #b70909;
+        color: black;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 12px rgba(168, 44, 83, 0.5);
+      }
+
+      /* === Social Icons === */
+      .footer .social-icons {
+        text-align: right;
+        margin-top: 12px;
+      }
+
+      .footer .social-icons a {
+        margin-left: 18px;
+        color: #555;
+        font-size: 28px;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .footer .social-icons a:hover {
+        color: #6610f2;
+        transform: scale(1.2);
+      }
+
+      /* === Divider === */
+      .footer hr {
+        margin: 40px 0;
+        border-top: 1.5px solid #ced4da;
+      }
+
+      /* === General Text Styles === */
+      .footer .title {
+        font-weight: 700;
+        font-size: 20px;
+        color: #1a1a1a;
+      }
+
+      .footer p {
+        line-height: 1.6;
+        color: #444;
+        font-size: 17px;
+      }
+
+      .footer a {
+        color: #d6336c;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #a82c53;
+        text-decoration: underline;
+      }
+
+      /* === Footer Left Column === */
+      .footer-left .title {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 4px;
+        color: #333;
+      }
+
+      .footer-left p {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .footer-left img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .footer-left a:hover img {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      /* === Contact Box (Right Column) === */
+      .contact-box {
+        text-align: left;
+        padding-left: 12px;
+      }
+
+      .contact-box p {
+        font-size: 16px;
+        color: #343a40;
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      .contact-box i {
+        font-size: 17px;
+        vertical-align: middle;
+        margin-right: 8px;
+        opacity: 0.85;
+      }
+
+      .contact-box a {
+        color: #d6336c;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .contact-box a:hover {
+        color: #a82c53;
+        text-decoration: underline;
+      }
+
+      /* === Responsive Styles === */
+      @media (max-width: 768px) {
+        .footer .top-line {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer .top-line p {
+          max-width: 100%;
+          font-size: 20px;
+        }
+
+        .footer .nav-links,
+        .footer .social-icons {
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .footer .nav-links a {
+          margin: 10px 8px;
+          padding: 10px 16px;
+          font-size: 16px;
+        }
+
+        .footer .social-icons a {
+          margin-left: 12px;
+          font-size: 26px;
+        }
+
+        .footer .col-md-4 {
+          text-align: center !important;
+          margin-top: 30px;
+        }
+
+        .footer-left .col-md-4 {
+          margin-bottom: 20px;
+        }
+
+        .footer-left {
+          text-align: center;
+        }
+
+        .footer-left .col-md-4 {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .footer-left img {
+          margin: 0 auto;
+        }
+      }
+      .footer .social-icons {
+        text-align: right;
+        margin-top: 12px;
+      }
+
+      .footer .social-icons a {
+        margin: 0 10px;
+        font-size: 18px;
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        background-color: #888; /* fallback */
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Hover effect */
+      .footer .social-icons a:hover {
+        transform: scale(1.2) translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Brand-specific background colors */
+      .footer .social-icons a.facebook {
+        background-color: #3b5998;
+      }
+      .footer .social-icons a.twitter {
+        background-color: #1da1f2;
+      }
+      .footer .social-icons a.youtube {
+        background-color: #ff0000;
+      }
+      .footer .social-icons a.linkedin {
+        background-color: #0077b5;
+      }
+      .footer .social-icons a.instagram {
+        background-color: #e4405f;
+      }
+      .footer .social-icons a.whatsapp {
+        background-color: #25d366;
+      }
+      .footer .social-icons a.telegram {
+        background-color: #0088cc;
+      }
+
+      .bottom-credit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+     
+        margin-bottom: -40px;
+        border-top: 1px solid #dee2e6;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 18px;
+        color: #495057;
+      }
+
+      .bottom-credit p {
+        margin: 0;
+        line-height: 1.3; /* line-height কমিয়ে একটু কম স্পেস দিবে */
+      }
+
+      .bottom-credit a {
+        color: #d6336c;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .bottom-credit a:hover {
+        color: #a82c53;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Footer Start -->
+    <footer class="footer">
+      <!-- Top Line -->
+      <div class="top-line">
+        <p>
+          সর্বশেষ বাংলাদেশের ও আন্তর্জাতিক অপরাধ ও নিরাপত্তা সংক্রান্ত খবর,
+          বিশ্লেষণ ও নির্ভরযোগ্য ব্রেকিং নিউজের<br />
+          জন্য নির্ভরযোগ্য প্ল্যাটফর্ম Crime24TV-তে স্বাগতম। আমাদের সাথে থাকুন
+          প্রতিদিনের গুরুত্বপূর্ণ আপডেট পেতে।
+        </p>
+        <div>
+          <nav class="nav-links" aria-label="Footer navigation">
+            <a href="#">আমাদের মিশন ও ভিশন</a>
+            <a href="#">টিমের পরিচিতি</a>
+            <a href="#">মিডিয়া কভারেজ</a>
+            <a href="#">যোগাযোগ</a>
+          </nav>
+          <div class="social-icons">
+            <a href="#" class="facebook" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="twitter" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="youtube" aria-label="YouTube"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="#" class="linkedin" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="instagram" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="whatsapp" aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="#" class="telegram" aria-label="Telegram"
+              ><i class="fab fa-telegram-plane"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- Main Footer Content -->
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row">
+            <!-- 1st Column -->
+            <div class="col-md-4 mb-4">
+              <p><span class="title">প্রধান সম্পাদক:</span> জ্যোতির্ময় নন্দী</p>
+              <p>
+                <span class="title">প্রধান নির্বাহী:</span> জামাল হোসাইন মনজু
+              </p>
+              <p><span class="title">ব্যবস্থাপনা সম্পাদক:</span> অভ্র হোসাইন</p>
+              <p>
+                <span class="title">প্রকাশক ও চেয়ারম্যান:</span> অর্ক হোসাইন
+              </p>
+            </div>
+
+            <!-- 2nd Column -->
+            <div class="col-md-4 mb-4">
+              <p><span class="title">সম্পাদকীয় ও বাণিজ্যিক কার্যালয়:</span></p>
+              <p>
+                এপিক ইত্তেহাদ পয়েন্ট [লেভেল-৪]<br />
+                ৬১৮ নুর আহমদ রোড<br />
+                চট্টগ্রাম-৪০০০।
+              </p>
+            </div>
+
+            <!-- 3rd Column -->
+            <div class="col-md-4 mb-4">
+              <p><span class="title">অ্যাপ ডাউনলোড করুন:</span></p>
+              <a
+                href="https://play.google.com/store/apps/details?id=your_app_id"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                  alt="Get it on Google Play"
+                  style="height: 50px; margin-bottom: 10px"
+                />
+              </a>
+              <br />
+              <a
+                href="https://apps.apple.com/app/id0000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  style="height: 50px"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-4 mt-md-0 contact-box">
+          <p>
+            <i class="fas fa-phone-alt text-primary me-2"></i>
+            ফোন: +৮৮০ ১৭১১ ২২৩৩৪৪, +৮৮০ ১৭১১ ২২৩৩৫৫
+          </p>
+          <p>
+            <i class="fas fa-fax text-secondary me-2"></i>
+            ফ্যাক্স: +৮৮০ ২ ৯৮৭৬৫৪৩২
+          </p>
+          <p>
+            <i class="fas fa-envelope text-danger me-2"></i>
+            ই-মেইল: <a href="mailto:info@crime24tv.com">info@crime24tv.com</a>
+          </p>
+          <p>
+            <i class="fas fa-bullhorn text-warning me-2"></i>
+            বিজ্ঞাপন: ফোন: ০১৭১১ ১২৩৪৫৬ | ই-মেইল:
+            <a href="mailto:ads@crime24tv.com">ads@crime24tv.com</a>
+          </p>
+          <p>
+            <i class="fas fa-paper-plane text-success me-2"></i>
+            সার্কুলেশন: ফোন: ০১৭১১ ৬৫৪৩২১
+          </p>
+          <p class="mt-3">
+            <i class="far fa-copyright text-muted me-2"></i>
+            © ২০২৫ Crime24TV মিডিয়া লিমিটেড। সর্বস্বত্ব সংরক্ষিত।
+          </p>
+        </div>
+      </div>
+      <div class="bottom-credit">
+        <p>
+          © ২০২৫
+          <a
+            href="https://smartframeworkbd.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            smartframeworkbd
+          </a>
+          — প্রযুক্তির পথে নির্ভরতার আরেক নাম।
+        </p>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </body>
+</html>

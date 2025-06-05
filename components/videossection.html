@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Playlist</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .FORmaring {
+        margin-right: 20px;
+      }
+
+      .video-section {
+        background-color: black;
+        padding: 80px 10px 10px;
+        min-height: 80vh;
+        border-radius: 10px;
+      }
+
+      .videosection-title {
+        position: relative;
+
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      .videosection-title h2 {
+        margin-top: 10px;
+        padding-right: 20px;
+        display: inline-block;
+
+        padding: 25px 0px;
+        z-index: 2;
+        position: relative;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .videosection-title::before,
+      .videosection-title::after {
+        content: "";
+        position: absolute;
+        left: 220px;
+        right: 0px;
+        border-top: 3px dotted #505050;
+        z-index: 1;
+      }
+
+      .videosection-title::before {
+        top: 45%;
+        transform: translateY(-50%);
+      }
+
+      .videosection-title::after {
+        top: 55%;
+        transform: translateY(-50%);
+      }
+
+      .lcard-container {
+        padding-left: 20px;
+        padding-right: 10px;
+        overflow-y: auto;
+        max-height: calc(95vh - 100px);
+      }
+
+      .lcard {
+        display: flex;
+        height: 160px;
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        overflow: hidden;
+        align-items: center;
+        position: relative;
+      }
+
+      .lcard:hover {
+        background-color: #2a2a2a;
+      }
+
+      .lcard-img-container {
+        position: relative;
+        width: 40%;
+        height: 100%;
+      }
+
+      .lcard-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 1.6s infinite;
+        z-index: 2;
+      }
+
+      .play-icon::before {
+        content: "";
+        border-style: solid;
+        border-width: 8px 0 8px 14px;
+        border-color: transparent transparent transparent #000;
+        margin-left: 2px;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+      }
+
+      .lcard-content {
+        width: 60%;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #fff;
+      }
+
+      .lcard-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 6px 0;
+        line-height: 1.2;
+      }
+
+      .lcard-date {
+        font-size: 12px;
+        color: #bbb;
+      }
+
+      .lcard-tag {
+        font-size: 12px;
+        padding: 2px 8px;
+        border-radius: 5px;
+        margin-bottom: 6px;
+        display: inline-block;
+        color: white;
+        width: fit-content;
+      }
+      .lcard-tag.politics {
+        background-color: #e91e63; /* pink/red shade */
+      }
+
+      .lcard-tag.animals {
+        background-color: #00bcd4;
+      }
+      .lcard-tag.health {
+        background-color: #4caf50;
+      }
+      .lcard-tag.fitness {
+        background-color: #f50057;
+      }
+      .lcard-tag.technology {
+        background-color: #3f51b5;
+      }
+
+      .main-video {
+        height: calc(80vh - 100px);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .main-video iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        border: none;
+      }
+
+      .main-video-info {
+        margin-top: 15px;
+        color: #fff;
+        padding-left: 20px;
+      }
+
+      .main-video-info .lcard-tag {
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .row.align-top {
+        align-items: flex-start;
+      }
+
+      @media (max-width: 768px) {
+        .lcard {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .lcard-img-container {
+          width: 100%;
+          height: auto;
+        }
+
+        .lcard-img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px 10px 0 0;
+        }
+
+        .lcard-content {
+          width: 100%;
+          align-items: center;
+          text-align: center;
+          padding: 8px;
+        }
+
+        .main-video {
+          height: auto;
+        }
+
+        .main-video-info {
+          padding-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="FORmaring">
+      <section class="video-section container-fluid">
+        <div class="videosection-title">
+          <h2>ভিডিও <span style="color: red">আর্কাইভ</span></h2>
+        </div>
+        <div class="container-fluid">
+          <div class="row align-top">
+            <!-- Left: Playlist -->
+            <div class="col-lg-4">
+              <div class="lcard-container" id="playlist">
+                <!-- START CARD -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('aqz-KE-bpKQ', 'Cat-tastic updates, keeping you feline fine', 'animals', '18 Mar, 2023')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg"
+                      alt="Cat Video"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag animals">ANIMALS</span>
+                    <h6 class="lcard-title">
+                      Cat-tastic updates, keeping you feline fine
+                    </h6>
+                    <small class="lcard-date">📅 18 Mar, 2023</small>
+                  </div>
+                </div>
+                <!-- Example for 5 cards, you can add more following this pattern -->
+
+                <!-- Card 1 -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('5qap5aO4i9A', 'Global News Highlights: Breaking Headlines Today', 'politics', '24 May, 2025')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg"
+                      alt="Global News Highlights"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag politics">POLITICS</span>
+                    <h6 class="lcard-title">
+                      Global News Highlights: Breaking Headlines Today
+                    </h6>
+                    <small class="lcard-date">📅 24 May, 2025</small>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('DWcJFNfaw9c', 'Health Update: New Breakthrough in Vaccine Research', 'health', '22 May, 2025')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/DWcJFNfaw9c/hqdefault.jpg"
+                      alt="Health Breakthrough"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag health">HEALTH</span>
+                    <h6 class="lcard-title">
+                      Health Update: New Breakthrough in Vaccine Research
+                    </h6>
+                    <small class="lcard-date">📅 22 May, 2025</small>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('a1Y73sPHKxw', 'Tech Trends 2025: The Rise of AI in Daily Life', 'technology', '20 May, 2025')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/a1Y73sPHKxw/hqdefault.jpg"
+                      alt="Tech Trends 2025"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag technology">TECHNOLOGY</span>
+                    <h6 class="lcard-title">
+                      Tech Trends 2025: The Rise of AI in Daily Life
+                    </h6>
+                    <small class="lcard-date">📅 20 May, 2025</small>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('VYOjWnS4cMY', 'Environment Report: Climate Change Impact Study', 'health', '18 May, 2025')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/VYOjWnS4cMY/hqdefault.jpg"
+                      alt="Climate Change Study"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag health">HEALTH</span>
+                    <h6 class="lcard-title">
+                      Environment Report: Climate Change Impact Study
+                    </h6>
+                    <small class="lcard-date">📅 18 May, 2025</small>
+                  </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                  class="lcard"
+                  onclick="loadVideo('M7lc1UVf-VE', 'Breaking News: Major Political Shift in Europe', 'politics', '15 May, 2025')"
+                >
+                  <div class="lcard-img-container">
+                    <img
+                      src="https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg"
+                      alt="Political Shift in Europe"
+                      class="lcard-img"
+                    />
+                    <div class="play-icon"></div>
+                  </div>
+                  <div class="lcard-content">
+                    <span class="lcard-tag politics">POLITICS</span>
+                    <h6 class="lcard-title">
+                      Breaking News: Major Political Shift in Europe
+                    </h6>
+                    <small class="lcard-date">📅 15 May, 2025</small>
+                  </div>
+                </div>
+
+                <!-- END CARD -->
+
+                <!-- Repeat the structure for each video below... -->
+
+                <!-- You can replace other cards following the same structure -->
+              </div>
+            </div>
+
+            <!-- Right: Main Video -->
+            <div class="col-lg-8 d-flex flex-column px-5">
+              <div class="main-video">
+                <iframe
+                  id="videoPlayer"
+                  src="https://www.youtube.com/embed/mUWqCO6r-1Q"
+                  allowfullscreen
+                  title="Main Video Player"
+                ></iframe>
+              </div>
+              <div class="main-video-info">
+                <span id="videoTag" class="lcard-tag fitness">FITNESS</span>
+                <p class="mb-1">🖋️ By - Tnews</p>
+
+                <h4 id="videoTitle" class="fw-bold mt-2">
+                  Sweet and Success Tales of Dedication in Fitness
+                </h4>
+                <p id="videoDate">📅 24 Mar, 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      function loadVideo(videoId, title, tag, date) {
+        document.getElementById("videoPlayer").src =
+          "https://www.youtube.com/embed/" + videoId;
+        document.getElementById("videoTitle").innerText = title;
+        document.getElementById("videoDate").innerText = "📅 " + date;
+
+        const tagSpan = document.getElementById("videoTag");
+        tagSpan.innerText = tag.toUpperCase();
+        tagSpan.className = "lcard-tag " + tag.toLowerCase();
+      }
+    </script>
+  </body>
+</html>

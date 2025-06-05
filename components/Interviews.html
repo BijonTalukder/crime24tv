@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>সাক্ষাৎকার</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .interview-section {
+        padding: 60px 20px;
+        border: 1px solid gainsboro;
+        margin-left: 12px;
+        margin-right: 12px;
+
+        border-radius: 8px;
+      }
+
+      .section-heading-wrapper {
+        display: flex;
+        align-items: center;
+      }
+
+      .section-heading-wrapper hr {
+        flex-grow: 1;
+        border: none;
+        height: 3px;
+        background-color: red;
+      }
+
+      .section-heading-wrapper h2 {
+        margin: 0 20px;
+        font-weight: bold;
+        font-size: 2rem;
+        white-space: nowrap;
+        color: #d00000;
+      }
+
+      .interview-card {
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .interview-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .interview-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .interview-card-heading {
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: #000000;
+        margin: 0;
+        text-align: left;
+      }
+
+      .interview-carousel-controls {
+        display: flex;
+        gap: 12px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #d00000;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .interview-carousel-control-prev,
+      .interview-carousel-control-next {
+        display: flex;
+        align-items: center;
+        color: black;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid #d00000;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+      }
+
+      .interview-carousel-control-prev:hover,
+      .interview-carousel-control-next:hover {
+        background-color: #d00000;
+        color: white;
+      }
+
+      .interview-carousel .carousel-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 0.25rem;
+        margin-bottom: 10px;
+      }
+
+      .interview-carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 20px;
+        text-align: left;
+        border-radius: 0 0 0.25rem 0.25rem;
+      }
+
+      .interview-carousel-caption h6 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .interview-carousel-caption p {
+        font-size: 16px;
+        margin: 5px 0 0;
+      }
+
+      .interview-btn-custom {
+        background-color: #d00000;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        display: block;
+        margin: 20px auto 0;
+        border-radius: 4px;
+        text-decoration: none;
+        text-align: center;
+        width: fit-content;
+        font-weight: 500;
+      }
+
+      .interview-btn-custom:hover {
+        background-color: #a80000;
+        color: white;
+      }
+
+      .btn-primary {
+        font-weight: bold;
+        background-color: #d00000 !important;
+        border-color: #d00000 !important;
+      }
+
+      .btn-primary:hover {
+        background-color: #a80000 !important;
+        border-color: #a80000 !important;
+      }
+      .btn-primary i {
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: color 0.3s ease;
+      }
+
+      .btn-primary:hover i {
+        color: #ff0000; /* your red color */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="interview-section text-center">
+      <!-- হেডিং দুই পাশে লাইন -->
+      <div class="container">
+        <div class="section-heading-wrapper justify-content-center">
+          <hr />
+          <h2>সাক্ষাৎকার</h2>
+          <hr />
+        </div>
+      </div>
+
+      <div class="container-fluid px-4">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card interview-card">
+              <div class="interview-card-header">
+                <h5 class="interview-card-heading">অপরাধী</h5>
+                <div class="interview-carousel-controls">
+                  <a
+                    class="interview-carousel-control-prev"
+                    href="#carouselCriminal1"
+                    role="button"
+                    data-bs-slide="prev"
+                    aria-label="Previous"
+                    >&lt;</a
+                  >
+                  <a
+                    class="interview-carousel-control-next"
+                    href="#carouselCriminal1"
+                    role="button"
+                    data-bs-slide="next"
+                    aria-label="Next"
+                    >&gt;</a
+                  >
+                </div>
+              </div>
+
+              <div
+                id="carouselCriminal1"
+                class="carousel slide interview-carousel position-relative"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/assets/images/Crime/1.jpg" alt="অপরাধী 1" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২০ মে ২০২৫ | বিভাগ: অপরাধ</h6>
+                      <p>অপরাধীর দৃষ্টিভঙ্গি ও বক্তব্য।</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/Crime/2.jpg" alt="অপরাধী 2" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২২ মে ২০২৫ | বিভাগ: ইউনিয়ন</h6>
+                      <p>ইউনিয়নের অপরাধ বিষয়ক বক্তব্য।</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="interview-btn-custom">বিস্তারিত</a>
+            </div>
+          </div>
+
+          <!-- Card 2 (same images and captions as Card 1) -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card interview-card">
+              <div class="interview-card-header">
+                <h5 class="interview-card-heading">পুলিশ কর্মকর্তা</h5>
+                <div class="interview-carousel-controls">
+                  <a
+                    class="interview-carousel-control-prev"
+                    href="#carouselCriminal2"
+                    role="button"
+                    data-bs-slide="prev"
+                    aria-label="Previous"
+                    >&lt;</a
+                  >
+                  <a
+                    class="interview-carousel-control-next"
+                    href="#carouselCriminal2"
+                    role="button"
+                    data-bs-slide="next"
+                    aria-label="Next"
+                    >&gt;</a
+                  >
+                </div>
+              </div>
+
+              <div
+                id="carouselCriminal2"
+                class="carousel slide interview-carousel position-relative"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/assets/images/Crime/1.jpg" alt="অপরাধী 1" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২০ মে ২০২৫ | বিভাগ: অপরাধ</h6>
+                      <p>অপরাধীর দৃষ্টিভঙ্গি ও বক্তব্য।</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/Crime/2.jpg" alt="অপরাধী 2" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২২ মে ২০২৫ | বিভাগ: ইউনিয়ন</h6>
+                      <p>ইউনিয়নের অপরাধ বিষয়ক বক্তব্য।</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="interview-btn-custom">বিস্তারিত</a>
+            </div>
+          </div>
+
+          <!-- Card 3 (same images and captions as Card 1) -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card interview-card">
+              <div class="interview-card-header">
+                <h5 class="interview-card-heading">ভুক্তভোগী</h5>
+                <div class="interview-carousel-controls">
+                  <a
+                    class="interview-carousel-control-prev"
+                    href="#carouselCriminal3"
+                    role="button"
+                    data-bs-slide="prev"
+                    aria-label="Previous"
+                    >&lt;</a
+                  >
+                  <a
+                    class="interview-carousel-control-next"
+                    href="#carouselCriminal3"
+                    role="button"
+                    data-bs-slide="next"
+                    aria-label="Next"
+                    >&gt;</a
+                  >
+                </div>
+              </div>
+
+              <div
+                id="carouselCriminal3"
+                class="carousel slide interview-carousel position-relative"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/assets/images/Crime/1.jpg" alt="অপরাধী 1" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২০ মে ২০২৫ | বিভাগ: অপরাধ</h6>
+                      <p>অপরাধীর দৃষ্টিভঙ্গি ও বক্তব্য।</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/Crime/2.jpg" alt="অপরাধী 2" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২২ মে ২০২৫ | বিভাগ: ইউনিয়ন</h6>
+                      <p>ইউনিয়নের অপরাধ বিষয়ক বক্তব্য।</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="interview-btn-custom">বিস্তারিত</a>
+            </div>
+          </div>
+
+          <!-- Card 4 (same images and captions as Card 1) -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card interview-card">
+              <div class="interview-card-header">
+                <h5 class="interview-card-heading">সাংবাদিক / বিশেষজ্ঞ</h5>
+                <div class="interview-carousel-controls">
+                  <a
+                    class="interview-carousel-control-prev"
+                    href="#carouselCriminal4"
+                    role="button"
+                    data-bs-slide="prev"
+                    aria-label="Previous"
+                    >&lt;</a
+                  >
+                  <a
+                    class="interview-carousel-control-next"
+                    href="#carouselCriminal4"
+                    role="button"
+                    data-bs-slide="next"
+                    aria-label="Next"
+                    >&gt;</a
+                  >
+                </div>
+              </div>
+
+              <div
+                id="carouselCriminal4"
+                class="carousel slide interview-carousel position-relative"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/assets/images/Crime/1.jpg" alt="অপরাধী 1" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২০ মে ২০২৫ | বিভাগ: অপরাধ</h6>
+                      <p>অপরাধীর দৃষ্টিভঙ্গি ও বক্তব্য।</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/Crime/2.jpg" alt="অপরাধী 2" />
+                    <div class="interview-carousel-caption">
+                      <h6>তারিখ: ২২ মে ২০২৫ | বিভাগ: ইউনিয়ন</h6>
+                      <p>ইউনিয়নের অপরাধ বিষয়ক বক্তব্য।</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="interview-btn-custom">বিস্তারিত</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centered "All News" Button -->
+        <div class="mt-4 text-center">
+          <a
+            href="#"
+            class="btn btn-primary btn-lg d-inline-flex align-items-center gap-1"
+          >
+            All News <i class="fas fa-angle-double-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

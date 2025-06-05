@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>বিশ্লেষণ ও মতামত</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .analysis-section {
+        padding: 60px 0;
+        margin: 12px;
+        border: 1px solid gainsboro;
+        border-radius: 8px;
+      }
+
+      .section-heading-tabs {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .section-heading-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-grow: 1;
+      }
+
+      .section-heading-left h2 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        color: black;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .section-heading-left hr {
+        flex-grow: 1;
+        border: none;
+        height: 4px;
+        background-color: #d00000;
+        margin: 0;
+        min-width: 120px;
+      }
+
+      .nav-tabs {
+        border-bottom: none;
+
+        overflow-x: auto;
+      }
+
+      .nav-tabs .nav-link {
+        color: #d00000;
+        font-weight: 600;
+        border: none;
+
+        padding: 12px 20px;
+        white-space: nowrap;
+      }
+
+      .nav-tabs .nav-link.active {
+        color: #a80000;
+      }
+
+      .scroll-container {
+        position: relative;
+        padding: 0 60px;
+      }
+
+      .scroll-wrapper {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 10px;
+      }
+
+      .scroll-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .analysis-card {
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        border-radius: 15px;
+        transition: transform 0.3s;
+        flex: 0 0 calc(25% - 15px);
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .analysis-card:hover {
+        transform: translateY(-7px);
+      }
+
+      .analysis-card img {
+        width: 100%;
+        height: 80%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      .analysis-card-body {
+        padding: 10px;
+        text-align: left;
+        flex-grow: 1;
+      }
+
+      .analysis-card-body h5 {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #000;
+        margin-bottom: 10px;
+      }
+
+      .analysis-card-body .date {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 8px;
+      }
+
+      .analysis-card-body p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0;
+      }
+
+      .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #d00000;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .scroll-btn.left {
+        left: 10px;
+      }
+
+      .scroll-btn.right {
+        right: 10px;
+      }
+
+      .analysis-nav-link {
+        padding: 10px 10px;
+        border: none;
+        outline: none;
+        background-color: white;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.4s ease, color 0.4s ease,
+          transform 0.2s ease;
+        box-shadow: none;
+        text-decoration: none;
+      }
+
+      /* Active state */
+      .analysis-nav-link.active {
+        background-color: red;
+        color: white;
+      }
+      @media (max-width: 992px) {
+        .analysis-card {
+          flex: 0 0 calc(50% - 10px);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .analysis-card {
+          flex: 0 0 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="analysis-section">
+      <div class="container-fluid">
+        <!-- Heading + Tabs -->
+        <div class="section-heading-tabs">
+          <div class="section-heading-left">
+            <h2>বিশ্লেষণ ও <span style="color: red">মতামত</span></h2>
+            <hr />
+          </div>
+          <ul
+            class="nav nav-tabs"
+            id="analysisTabs"
+            role="tablist "
+            style="border: none"
+          >
+            <li class="nav-item">
+              <button
+                class="analysis-nav-link active"
+                data-bs-toggle="tab"
+                data-bs-target="#all"
+              >
+                সব
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="analysis-nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#legal"
+              >
+                আইনি বিশ্লেষণ
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="analysis-nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#report"
+              >
+                তদন্ত প্রতিবেদন
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="analysis-nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#opinion"
+              >
+                বিশেষ মতামত
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="analysisTabsContent">
+          <div class="tab-pane fade show active" id="all">
+            <div class="scroll-container">
+              <button class="scroll-btn left" onclick="scrollCards(-1)">
+                &#10094;
+              </button>
+              <div class="scroll-wrapper" id="cardScroll">
+                <!-- Repeatable Cards -->
+                <div class="analysis-card">
+                  <img src="/assets/images/Analysis/1.jpg" alt="card" />
+                  <div class="analysis-card-body">
+                    <h5>আইনি বিশ্লেষণ</h5>
+                    <div class="date">২৮ মে ২০২৫</div>
+                    <p>বিচার বিভাগের সিদ্ধান্ত ও প্রভাব।</p>
+                  </div>
+                </div>
+                <div class="analysis-card">
+                  <img src="/assets/images/Analysis/2.jpg" alt="card" />
+                  <div class="analysis-card-body">
+                    <h5>অর্থনৈতিক সংকট</h5>
+                    <div class="date">২৭ মে ২০২৫</div>
+                    <p>বর্তমান বাজেট বিশ্লেষণ।</p>
+                  </div>
+                </div>
+                <div class="analysis-card">
+                  <img src="/assets/images/Analysis/3.jpg" alt="card" />
+                  <div class="analysis-card-body">
+                    <h5>রাজনৈতিক অস্থিরতা</h5>
+                    <div class="date">২৬ মে ২০২৫</div>
+                    <p>দলীয় মতবিরোধ ও ফলাফল।</p>
+                  </div>
+                </div>
+                <div class="analysis-card">
+                  <img src="/assets/images/Analysis/4.jpg" alt="card" />
+                  <div class="analysis-card-body">
+                    <h5>আন্তর্জাতিক চ্যালেঞ্জ</h5>
+                    <div class="date">২৫ মে ২০২৫</div>
+                    <p>বৈশ্বিক প্রেক্ষাপটে আমাদের ভূমিকা।</p>
+                  </div>
+                </div>
+                <div class="analysis-card">
+                  <img src="/assets/images/Analysis/1.jpg" alt="card" />
+                  <div class="analysis-card-body">
+                    <h5>সামাজিক প্রভাব</h5>
+                    <div class="date">২৪ মে ২০২৫</div>
+                    <p>সাম্প্রতিক ঘটনার পর্যালোচনা।</p>
+                  </div>
+                </div>
+              </div>
+              <button class="scroll-btn right" onclick="scrollCards(1)">
+                &#10095;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function scrollCards(direction) {
+        const container = document.getElementById("cardScroll");
+        const scrollAmount = container.offsetWidth;
+        container.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

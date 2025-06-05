@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>মাদক - Crime Patrol</title>
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main class="container my-4">
+    <h1>মাদক সম্পর্কিত তথ্য</h1>
+    <p>মাদক সেবন, ধরা পড়া এবং প্রতিরোধ সম্পর্কিত কেস ও ভিডিও।</p>
+
+    <section>
+      <h2>সাম্প্রতিক মাদক কেস</h2>
+      <ul class="list-group">
+        <li class="list-group-item">মাদক চোরাচালান গ্রেফতার</li>
+        <li class="list-group-item">স্কুল ছাত্রদের মধ্যে মাদক সমস্যা</li>
+      </ul>
+    </section>
+
+    <section class="my-4">
+      <h2>ভিডিও সংগ্রহ</h2>
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/dummyvideo3" title="মাদক ভিডিও" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section>
+      <h2>আইনগত ব্যবস্থা</h2>
+      <p>মাদক নিয়ন্ত্রণ আইন ও সরকারের উদ্যোগ সম্পর্কে তথ্য।</p>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('../components/navbar.html').then(res => res.text()).then(html => document.getElementById('navbar').innerHTML = html);
+    fetch('../components/footer.html').then(res => res.text()).then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>

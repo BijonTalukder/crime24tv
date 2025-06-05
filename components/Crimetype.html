@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crime News Section</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .tab-image-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 340px;
+        cursor: pointer;
+      }
+
+      .tab-image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .tab-image-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Category badge styling */
+      .category-badge {
+        background-color: #e91e63;
+        color: white;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.875rem; /* 14px -> ~0.875rem */
+        display: inline-block;
+        margin-bottom: 6px;
+      }
+
+      /* Title and date container */
+      .tab-card-content {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: transparent;
+        color: white;
+        font-size: 1rem; /* reduced from 22px */
+        font-weight: 700;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+        user-select: none;
+      }
+
+      .tab-card-content small {
+        display: block;
+        font-weight: normal;
+        font-size: 0.875rem; /* reduced from 14px */
+        margin-top: 2px;
+      }
+
+      .tab-image-card:hover .tab-card-content {
+        color: red;
+      }
+
+      .custom-container {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 10px 10px;
+        border: 1px gainsboro solid;
+        border-radius: 8px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-header h2 {
+        font-weight: bold;
+        font-size: 28px; /* Heading remains same */
+      }
+
+      .crime-Tab {
+        border: none;
+      }
+
+      .crime-Tab .nav-link {
+        padding: 10px 16px;
+        border: none;
+        background-color: white;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.4s ease, color 0.4s ease;
+        font-size: 0.95rem;
+      }
+
+      .crime-Tab .nav-link.active {
+        background-color: red;
+        color: white;
+      }
+
+      /* Carousel fixed height */
+      #middleCarousel .carousel-inner {
+        border-radius: 10px;
+        overflow: hidden;
+        height: 688px;
+      }
+
+      #middleCarousel .tab-image-card {
+        height: 688px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="custom-container py-4">
+      <!-- Section Header -->
+      <div class="section-header">
+        <div class="col-md-7 p-0">
+          <div class="heading-with-long-red-line">
+            <h2>
+              <strong>অপরাধের <span style="color: red">ধরণ</span></strong>
+            </h2>
+            <div class="long-red-line"></div>
+          </div>
+        </div>
+        <ul class="nav crime-Tab" id="crimeTab" role="tablist">
+          <li class="nav-item">
+            <button
+              class="nav-link active"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-all"
+            >
+              সব
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-khun"
+            >
+              খুন
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-opohoron"
+            >
+              অপহরণ
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-dorshon"
+            >
+              ধর্ষণ
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-dokati"
+            >
+              ডাকাতি ও চুরি
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-cyber"
+            >
+              সাইবার ক্রাইম
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-madok"
+            >
+              মাদক
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-family"
+            >
+              পারিবারিক সহিংসতা
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content px-3" id="crimeTabContent">
+        <!-- সব Tab -->
+        <div class="tab-pane fade show active" id="tab-all">
+          <div class="row g-3">
+            <!-- Column 1 -->
+            <div class="col-12 col-md-3 d-flex flex-column gap-3">
+              <div class="tab-image-card">
+                <img src="/assets/images/Crime/1.jpg" alt="Crime 1" />
+                <div class="tab-card-content">
+                  <span class="category-badge">খুন</span>
+                  অপরাধ ১: হত্যা মামলা<br /><small>২৬ মে ২০২৫</small>
+                </div>
+              </div>
+              <div class="tab-image-card">
+                <img src="/assets/images/Crime/2.jpg" alt="Crime 2" />
+                <div class="tab-card-content">
+                  <span class="category-badge">অপহরণ</span>
+                  অপরাধ ২: অপহরণের ঘটনা<br /><small>২৬ মে ২০২৫</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2 (Slider) -->
+            <div class="col-12 col-md-6">
+              <div
+                id="middleCarousel"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="tab-image-card">
+                      <img
+                        src="/assets/images/Crime/3.jpg"
+                        class="d-block w-100"
+                        alt="Crime Slide 1"
+                      />
+                      <div class="tab-card-content">
+                        <span class="category-badge">ধর্ষণ</span>
+                        বিশেষ অপরাধ ১: ধর্ষণ মামলা<br /><small
+                          >২৬ মে ২০২৫</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="tab-image-card">
+                      <img
+                        src="/assets/images/Crime/4.jpg"
+                        class="d-block w-100"
+                        alt="Crime Slide 2"
+                      />
+                      <div class="tab-card-content">
+                        <span class="category-badge">ডাকাতি</span>
+                        বিশেষ অপরাধ ২: ডাকাতির ঘটনা<br /><small
+                          >২৬ মে ২০২৫</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="tab-image-card">
+                      <img
+                        src="/assets/images/Crime/5.jpg"
+                        class="d-block w-100"
+                        alt="Crime Slide 3"
+                      />
+                      <div class="tab-card-content">
+                        <span class="category-badge">সাইবার ক্রাইম</span>
+                        বিশেষ অপরাধ ৩: সাইবার ফ্রড<br /><small
+                          >২৬ মে ২০২৫</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Controls -->
+                <button
+                  class="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#middleCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon bg-dark rounded-circle"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                  class="carousel-control-next"
+                  type="button"
+                  data-bs-target="#middleCarousel"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon bg-dark rounded-circle"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-12 col-md-3 d-flex flex-column gap-3">
+              <div class="tab-image-card">
+                <img src="/assets/images/Crime/1.jpg" alt="Crime 4" />
+                <div class="tab-card-content">
+                  <span class="category-badge">মাদক</span>
+                  অপরাধ ৪: মাদক সংক্রান্ত<br /><small>২৬ মে ২০২৫</small>
+                </div>
+              </div>
+              <div class="tab-image-card">
+                <img src="/assets/images/Crime/2.jpg" alt="Crime 5" />
+                <div class="tab-card-content">
+                  <span class="category-badge">পারিবারিক সহিংসতা</span>
+                  অপরাধ ৫: পারিবারিক ঝগড়া<br /><small>২৬ মে ২০২৫</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Tabs -->
+        <div class="tab-pane fade" id="tab-khun">
+          <p>খুন সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-opohoron">
+          <p>অপহরণ সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-dorshon">
+          <p>ধর্ষণ সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-dokati">
+          <p>ডাকাতি ও চুরি সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-cyber">
+          <p>সাইবার ক্রাইম সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-madok">
+          <p>মাদক সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="tab-family">
+          <p>পারিবারিক সহিংসতা সম্পর্কিত কনটেন্ট এখানে আসবে।</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

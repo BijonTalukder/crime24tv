@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>সাইবার ক্রাইম - Crime Patrol</title>
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main class="container my-4">
+    <h1>সাইবার ক্রাইম</h1>
+    <p>সাইবার অপরাধ ও প্রতিরোধ সংক্রান্ত তথ্য ও কেসসমূহ।</p>
+
+    <section>
+      <h2>সাম্প্রতিক সাইবার ক্রাইম কেস</h2>
+      <ul class="list-group">
+        <li class="list-group-item">ফিশিং স্ক্যাম - ব্যাংক তথ্য চুরি</li>
+        <li class="list-group-item">হ্যাকিংয়ের মাধ্যমে ব্যক্তিগত তথ্য ফাঁস</li>
+      </ul>
+    </section>
+
+    <section class="my-4">
+      <h2>ভিডিও গ্যালারি</h2>
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/dummyvideo2" title="সাইবার ক্রাইম ভিডিও" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section>
+      <h2>তদন্ত ও প্রতিরোধ</h2>
+      <p>সাইবার নিরাপত্তা ও আইনগত ব্যবস্থা সম্পর্কে বিস্তারিত।</p>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('../components/navbar.html').then(res => res.text()).then(html => document.getElementById('navbar').innerHTML = html);
+    fetch('../components/footer.html').then(res => res.text()).then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>

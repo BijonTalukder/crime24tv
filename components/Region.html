@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Region News Section</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .region-card-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+      }
+
+      .region-card-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .region-card-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      .region-badge {
+        background-color: #e91e63;
+        color: white;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 14px;
+        display: inline-block;
+        margin-bottom: 6px;
+      }
+
+      .region-card-content {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: transparent;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+        user-select: none;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      }
+
+      .region-card-content small {
+        display: block;
+        font-weight: normal;
+        font-size: 13px;
+        margin-top: 2px;
+      }
+
+      .region-card-wrapper:hover .region-card-content {
+        color: #ffc107;
+      }
+
+      .region-container {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 10px;
+        border: 1px gainsboro solid;
+        border-radius: 8px;
+      }
+
+      .region-section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .region-section-header h2 {
+        font-weight: bold;
+        font-size: 28px;
+      }
+
+      .region-tabs.nav-tabs {
+        border-bottom: none;
+      }
+
+      .region-tabs .nav-link {
+        padding: 10px 16px;
+        border: none;
+        outline: none;
+        background-color: white;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.4s ease, color 0.4s ease,
+          transform 0.2s ease;
+        box-shadow: none;
+      }
+
+      .region-tabs .nav-link.active {
+        background-color: #0d6efd;
+        color: white;
+      }
+
+      .region-news-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px; /* gap between cards */
+        padding-left: 16px;
+        padding-right: 10px; /* inner spacing of the grid */
+        height: 92vh;
+        overflow-y: auto;
+        box-sizing: border-box; /* ensure padding doesn't break layout */
+      }
+
+      .region-news-grid .region-card-wrapper {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="region-container py-4">
+      <div class="region-section-header">
+        <div class="col-md-7 p-0">
+          <div class="heading-with-long-red-line">
+            <h2>
+              <strong>অঞ্চলভিত্তিক <span style="color: red">খবর</span></strong>
+            </h2>
+            <div class="long-red-line"></div>
+          </div>
+        </div>
+        <ul class="nav nav-tabs region-tabs" id="regionTab" role="tablist">
+          <li class="nav-item">
+            <button
+              class="trend-nav-link active"
+              data-bs-toggle="tab"
+              data-bs-target="#region-all"
+            >
+              সব
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-dhaka"
+            >
+              ঢাকা
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-ctg"
+            >
+              চট্টগ্রাম
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-sylhet"
+            >
+              সিলেট
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-rajshahi"
+            >
+              রাজশাহী
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-comilla"
+            >
+              কুমিল্লা
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-khulna"
+            >
+              খুলনা
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-barisal"
+            >
+              বরিশাল
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="trend-nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#region-rangpur"
+            >
+              রংপুর
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="regionTabContent">
+        <div class="tab-pane fade show active" id="region-all">
+          <div class="region-news-grid">
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/1.jpg" alt="Dhaka News" />
+              <div class="region-card-content">
+                <span class="region-badge">ঢাকা</span>
+                রাজধানীর সর্বশেষ খবর<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/2.jpg" alt="Chittagong News" />
+              <div class="region-card-content">
+                <span class="region-badge">চট্টগ্রাম</span>
+                বন্দর নগরীর হালচাল<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/3.jpg" alt="Sylhet News" />
+              <div class="region-card-content">
+                <span class="region-badge">সিলেট</span>
+                সিলেটের সাম্প্রতিক আপডেট<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/4.jpg" alt="Rajshahi News" />
+              <div class="region-card-content">
+                <span class="region-badge">রাজশাহী</span>
+                উত্তরের সাংস্কৃতিক শহর<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/5.jpg" alt="Comilla News" />
+              <div class="region-card-content">
+                <span class="region-badge">কুমিল্লা</span>
+                ঐতিহ্যের কুমিল্লার খবর<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/6.jpg" alt="Khulna News" />
+              <div class="region-card-content">
+                <span class="region-badge">খুলনা</span>
+                দক্ষিণ-পশ্চিম অঞ্চলের বার্তা<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/5.jpg" alt="Barisal News" />
+              <div class="region-card-content">
+                <span class="region-badge">বরিশাল</span>
+                নদের শহরের সংবাদ<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+            <div class="region-card-wrapper">
+              <img src="/assets/images/Region/1.jpg" alt="Rangpur News" />
+              <div class="region-card-content">
+                <span class="region-badge">রংপুর</span>
+                উত্তরের জনপদের খবর<br /><small>২৬ মে ২০২৫</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Region-specific content placeholders -->
+        <div class="tab-pane fade" id="region-dhaka">
+          <p>ঢাকার কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-ctg">
+          <p>চট্টগ্রামের কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-sylhet">
+          <p>সিলেটের কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-rajshahi">
+          <p>রাজশাহীর কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-comilla">
+          <p>কুমিল্লার কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-khulna">
+          <p>খুলনার কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-barisal">
+          <p>বরিশালের কনটেন্ট আসবে।</p>
+        </div>
+        <div class="tab-pane fade" id="region-rangpur">
+          <p>রংপুরের কনটেন্ট আসবে।</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

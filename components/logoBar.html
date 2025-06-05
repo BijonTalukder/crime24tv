@@ -1,0 +1,226 @@
+<section class="logo-bar border-bottom bg-white shadow-sm py-2">
+  <div class="container-fluid px-2">
+    <div
+      class="d-flex flex-wrap justify-content-between align-items-center px-2"
+    >
+      <!-- Logo -->
+      <a href="index.html" class="logo-link d-flex align-items-center">
+        <img
+          src="/assets/images/web-logo.png"
+          alt="Crime24TV Logo"
+          class="logo-img"
+        />
+      </a>
+
+      <!-- Right Side Content -->
+      <div
+        class="right-content d-flex align-items-center flex-wrap gap-3 text-dark"
+      >
+        <a href="#" class="nav-link">
+          <i class="fas fa-archive me-1"></i> আর্কাইভ
+        </a>
+
+        <div class="nav-item position-relative">
+          <a href="#" class="nav-link social-toggle">
+            <i class="fas fa-share-alt me-1"></i> সোশ্যাল মিডিয়া
+          </a>
+          <div class="social-popup">
+            <div class="row">
+              <div class="col">
+                <p>📘 Facebook</p>
+                <ul>
+                  <li>Crime24</li>
+                  <li>Crime24 News</li>
+                  <li>Crime24 World</li>
+                  <li>Crime24 Entertainment</li>
+                </ul>
+              </div>
+              <div class="col">
+                <p>📺 YouTube</p>
+                <ul>
+                  <li>Crime24 News</li>
+                  <li>Crime24 Drama</li>
+                  <li>Crime24 World</li>
+                </ul>
+              </div>
+              <div class="col">
+                <p>🎵 TikTok</p>
+                <ul>
+                  <li>Crime24 News</li>
+                  <li>Crime24 Entertainment</li>
+                </ul>
+              </div>
+              <div class="col">
+                <p>🐦 Twitter</p>
+                <ul>
+                  <li>@Crime24</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="nav-link">
+          <i class="fas fa-language me-1"></i> বাংলা কনভার্টার
+        </a>
+
+        <a href="#" class="icon-link">
+          <i class="fas fa-search"></i>
+        </a>
+
+        <a href="#" class="icon-link position-relative">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logo-img {
+    max-height: 80px;
+    object-fit: contain;
+    padding-left: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .right-content .nav-link {
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #222;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.3s ease;
+  }
+
+  .right-content .nav-link:hover {
+    color: #d40000;
+  }
+
+  .icon-link {
+    font-size: 1rem;
+    color: #444;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .icon-link:hover {
+    color: #d40000;
+    background-color: #e8e8e8;
+    transform: scale(1.1);
+  }
+
+  .icon-link .badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    width: 520px;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .nav-item:hover .social-popup {
+    display: block;
+  }
+
+  .social-popup .row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .social-popup .col {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .social-popup p {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: #d40000;
+  }
+
+  .social-popup ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .social-popup ul li {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.85rem;
+  }
+
+  /* Responsive Tweaks */
+  @media (max-width: 768px) {
+    .logo-img {
+      max-height: 50px;
+    }
+
+    .right-content {
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .right-content .nav-link {
+      font-size: 0.95rem;
+    }
+
+    .icon-link {
+      font-size: 0.95rem;
+      padding: 5px;
+    }
+
+    .social-popup {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .right-content .nav-link {
+      font-size: 0.85rem;
+    }
+
+    .social-popup {
+      padding: 12px;
+    }
+
+    .social-popup p {
+      font-size: 0.85rem;
+    }
+
+    .social-popup ul li {
+      font-size: 0.75rem;
+    }
+  }
+</style>
