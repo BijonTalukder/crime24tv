@@ -14,44 +14,42 @@
         margin-right: 10px;
         margin-left: -10px;
         margin-top: 15px;
-        
       }
       .nu-wrapper {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-
+      
       .nu-main-row {
         display: flex;
         gap: 20px;
         min-height: 850px;
       }
-
+      
       .nu-left-section,
       .nu-right-section {
         background-color: white;
         border-radius: 12px;
         border: 1px solid gainsboro;
-
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         padding: 20px;
         display: flex;
         flex-direction: column;
       }
-
+      
       .nu-left-section {
         width: 80%;
       }
-
+      
       .nu-right-section {
         width: 20%;
       }
-
+      
       .nu-heading {
         display: flex;
         align-items: center;
         margin-bottom: 25px;
       }
-
+      
       .nu-heading::before,
       .nu-heading::after {
         content: "";
@@ -59,27 +57,28 @@
         height: 3px;
         background: red;
       }
-
+      
       .nu-heading h3 {
         margin: 0 20px;
         font-weight: 700;
+        font-size: 1.2rem; /* Heading size kept intact */
         text-align: center;
         white-space: nowrap;
       }
-
+      
       .nu-inner-left {
         flex: 1;
         display: flex;
         gap: 20px;
       }
-
+      
       .nu-colman {
         width: 65%;
-        height:700px;
+        height: 700px;
         display: flex;
         flex-direction: column;
       }
-
+      
       .nu-card {
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -91,7 +90,7 @@
         height: 100%;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
       }
-
+      
       .nu-card-header {
         padding-left: 10px;
         display: flex;
@@ -100,29 +99,26 @@
         border-bottom: 1px solid gainsboro;
         margin-bottom: 20px;
       }
-
+      
       .nu-card-title {
         font-weight: 700;
-        font-size: 1.2rem;
-     
+        font-size: 0.9rem; /* Reduced from 1.2rem */
       }
-
+      
       .nu-carousel-controls a {
         color: rgb(248, 27, 27);
         font-weight: 700;
         padding-right: 10px;
         padding-bottom: 15px;
-        font-size: 3rem;
+        font-size: 2rem; /* Reduced from 3rem */
         text-decoration: none;
         user-select: none;
-        
-       
       }
-
+      
       .nu-carousel-controls a:hover {
         color: #0056b3;
       }
-
+      
       .nu-carousel-caption {
         position: absolute;
         bottom: 25px;
@@ -137,12 +133,12 @@
       
       .nu-carousel-caption h6 {
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 0.8rem; /* Reduced from 1.1rem */
         margin: 0 0 5px;
       }
       
       .nu-carousel-caption .nu-carousel-date {
-        font-size: 0.9rem;
+        font-size: 0.7rem; /* Reduced from 0.9rem */
         font-weight: 400;
         color: #f2f2f2;
         margin-bottom: 10px;
@@ -150,17 +146,18 @@
       
       .nu-carousel-caption p {
         margin: 5px 0 0;
-        font-size: 0.95rem;
+        font-size: 0.7rem; /* Reduced from 0.95rem */
         line-height: 1.4;
       }
+      
       .carousel-inner {
         position: relative;
       }
+      
       .carousel-item {
         position: relative;
       }
       
-
       .nu-btn {
         display: block;
         text-align: center;
@@ -173,24 +170,22 @@
         transition: background-color 0.3s ease;
         border-radius: 0 0 10px 10px;
       }
-
+      
       .nu-btn:hover {
         background: #0056b3;
       }
-
+      
       .nu-carousel {
         width: 100%;
-        
         overflow: hidden;
       }
-
+      
       .nu-carousel img {
         width: 100%;
         height: 600px;
-        
         display: block;
       }
-
+      
       .nu-news {
         width: 35%;
         display: flex;
@@ -202,13 +197,14 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         height: 700px;
       }
-
+      
       .nu-news h5 {
         text-align: center;
         font-weight: bold;
+        font-size: 1rem; /* Slightly smaller but close to original */
         margin-bottom: 15px;
       }
-
+      
       .nu-news-item {
         flex: 1;
         display: flex;
@@ -218,17 +214,17 @@
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.04);
         margin-bottom: 10px;
       }
-
+      
       .nu-news-item:last-child {
         margin-bottom: 0;
       }
-
+      
       .nu-news-item img {
         width: 50%;
         height: 100%;
         object-fit: cover;
       }
-
+      
       .nu-news-content {
         padding: 10px;
         display: flex;
@@ -236,18 +232,18 @@
         justify-content: center;
         width: 60%;
       }
-
+      
       .nu-news-title {
-        font-size: 1rem;
+        font-size: 0.85rem; /* Reduced from 1rem */
         font-weight: 600;
         margin-bottom: 5px;
       }
-
+      
       .nu-news-date {
-        font-size: 0.9rem;
+        font-size: 0.75rem; /* Reduced from 0.9rem */
         color: gray;
       }
-
+      
       /* Static Calendar Styling */
       .calendar {
         width: 100%;
@@ -258,71 +254,74 @@
         user-select: none;
         margin-top: 15px;
       }
-
+      
       .calendar-header {
         text-align: center;
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 1.3rem; /* Heading size kept intact */
         margin-bottom: 15px;
         color: red;
       }
-
+      
       .calendar-weekdays {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         text-align: center;
         font-weight: 600;
+        font-size: 0.8rem; /* Reduced */
         color: #555;
         margin-bottom: 8px;
       }
-
+      
       .calendar-weekdays div {
         padding: 8px 0;
         border-bottom: 1px solid #ddd;
       }
-
+      
       .calendar-days {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         gap: 8px;
       }
-
+      
       .calendar-day {
         padding: 12px 0;
         text-align: center;
         border-radius: 8px;
         font-weight: 600;
+        font-size: 0.8rem; /* Reduced */
         cursor: default;
         transition: background-color 0.2s ease;
       }
-
+      
       .calendar-day:hover {
         background-color: #f5f5f5;
       }
-
+      
       /* Differentiate days outside month */
       .calendar-day.outside {
         color: #bbb;
       }
-
+      
       /* Highlight today's date */
       .calendar-day.today {
         background-color: red;
         color: white;
         font-weight: 700;
       }
-
+      
       /* Buttons for archive section */
       .archive-buttons {
         display: flex;
         gap: 12px;
         margin-bottom: 15px;
       }
-
+      
       .archive-buttons button {
         flex: 1;
         padding: 10px 0;
         font-weight: 600;
+        font-size: 0.85rem; /* Reduced */
         border-radius: 8px;
         border: 2px solid red;
         background-color: white;
@@ -330,60 +329,60 @@
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
-
+      
       .archive-buttons button:hover {
         background-color: red;
         color: white;
       }
-
+      
       /* Month & Year selectors */
       .archive-selectors {
         display: flex;
         gap: 10px;
         margin-bottom: 10px;
       }
-
+      
       .archive-selectors select {
         flex: 1;
         padding: 8px 10px;
+        font-size: 0.85rem; /* Reduced */
         border: 1.5px solid #ddd;
         border-radius: 6px;
         font-weight: 600;
         cursor: pointer;
         transition: border-color 0.3s ease;
       }
-
+      
       .archive-selectors select:hover,
       .archive-selectors select:focus {
         border-color: red;
         outline: none;
       }
-
+      
       @media (max-width: 992px) {
         .nu-main-row {
           flex-direction: column;
           min-height: auto;
         }
-
+      
         .nu-left-section,
         .nu-right-section {
           width: 100%;
         }
-
+      
         .nu-inner-left {
           flex-direction: column;
         }
-
-       
-
+      
         .nu-news-item {
           height: auto;
         }
-
+      
         .nu-heading h3 {
-          font-size: 1.2rem;
+          font-size: 1.2rem; /* Heading size intact */
         }
       }
+      
     </style>
   </head>
   <body>

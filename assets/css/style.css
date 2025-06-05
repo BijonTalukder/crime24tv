@@ -162,6 +162,7 @@ img {
   background-color: red;
   margin-left: -10px; /* Optional: overlap or tighter joint */
   z-index: 1;
+  margin-right: 10px;
 }
 .category-badge {
   background-color: #e91e63;
